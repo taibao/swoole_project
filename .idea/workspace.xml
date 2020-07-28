@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9f50ce2-c911-4d0e-bffe-6a2083be7190" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/02/buffer/server.php" beforeDir="false" afterPath="$PROJECT_DIR$/02/buffer/server.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file leaf-file-name="client.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/02/buffer/client.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+            <state relative-caret-position="347">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
             </state>
           </provider>
         </entry>
@@ -29,8 +28,8 @@
       <file leaf-file-name="server.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/02/buffer/server.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="380">
+              <caret line="50" selection-start-line="50" selection-end-line="50" />
             </state>
           </provider>
         </entry>
@@ -54,8 +53,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="101" />
-    <option name="y" value="231" />
+    <option name="x" value="68" />
+    <option name="y" value="70" />
     <option name="width" value="1067" />
     <option name="height" value="912" />
   </component>
@@ -116,15 +115,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1595952851752</updated>
-      <workItem from="1595952854822" duration="2704000" />
+      <workItem from="1595952854822" duration="2900000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2704000" />
+    <option name="totallyTimeSpent" value="2900000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="101" y="231" width="1067" height="912" extended-state="0" />
+    <frame x="68" y="70" width="1067" height="912" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -132,9 +131,9 @@
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.23255815" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.23255815" />
       <window_info anchor="right" id="Remote Host" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26017874" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26017874" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="right" id="Database" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -158,15 +157,15 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/02/buffer/client.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+        <state relative-caret-position="347">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/02/buffer/server.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="380">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
         </state>
       </provider>
     </entry>

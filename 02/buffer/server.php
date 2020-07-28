@@ -47,6 +47,7 @@
         $server->send($fd,$data);
         $server->send($fd,$data);
         $server->send($fd,$data);
+        $server->send($fd,$data);
         $server->close($fd);
     });
 
