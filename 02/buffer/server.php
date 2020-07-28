@@ -48,6 +48,7 @@
         $server->send($fd,$data);
         $server->send($fd,$data);
         $server->send($fd,$data);
+        //关闭连接
         $server->close($fd);
     });
 
