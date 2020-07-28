@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body style="text-align:center;">
+    <!--获取摄像头流，实时播放-->
+    <video autoplay id="sourceid" style="width:200px;height:250px;"></video>
+    <canvas id="output" style="display:block;"> </canvas>
+
+    <script>
+      var video = document.getElementById("sourceid");
+      var back = document.getElementById("output"); //获取canvas
+      var backcontext = back.getContext('2d'); //获取canvas绘图指针-->画笔
+
+      //电话机 h5
+      var socket = new WebSocket("wss://49.4.82.210:9200"); //新建ws连接
+
+
+      //打电话
+      socket.onopen = function(ev){
+        //连接打开的时候，把图像绘制到canvas上
+        draw();
+        console.log('远端连接，可以开车');
+
+      }
+      //申请使用音频或视频输入，麦克风，摄像头
+      navigator.getUserMedia = navigator.getUserMedia||navigator.webkitgetUserMedia||navigator.mozgetUserMedia||navigator.msgetUserMedia;
+
+      //成功的时候的回调函数，把视频流发送video
+      var success = function(stream){
+        //流对象给video
+        // var mediaStream =
+        // HTMLMediaElement.srcObject = mediaStream
+
+        video.srcObject = stream;
+        // video.src = window.URL.srcObject(stream);
+      }
+
+      //真正的调用摄像头，需要三个参数
+      navigator.getUserMedia({
+        //调用视频还是音频
+        video:true,
+        audio:false
+      },success,console.log);
+
+      //使用canvas把视频的帧绘出
+      function draw(){
+        back.width =  300;
+        back.height = 300;
+        //绘制，使用canvas把视频的帧绘出
+        backcontext.drawImage(video,0,0,back.width,back.height);
+        //递归调用
+        //将图片转成base64格式，图片格式
+        var str = back.toDataURL('image/jpeg',0.4);
+        //发送base64格式图片给服务器
+        socket.send(
+          JSON.stringify({
+            data:str,
+            type:'video'
+          })
+        );
+        //递归调用140毫秒的延时，决定视频是否卡顿的原因之一
+        setTimeout(draw,140);
+      }
+
+      draw();
+
+
+      </script>
+  </body>
+</html>

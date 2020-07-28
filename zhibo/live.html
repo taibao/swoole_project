@@ -1,0 +1,36 @@
+<script src="./public.vue/jquery-1.8.2.min.js"></script>
+<script>
+    var receiver_socket = new WebSocket("wss://49.4.82.210:9200");
+    var image = document.getElementById('receiver');
+
+    receiver_socket.onmessage = function(data){
+      console.log(data);
+      data = $.parseJSON(data.data);
+
+      if(data.type =='video'){
+        image.src = data.data;
+      }else if(data.type == "video"){
+        $('#send').text(data.data);
+        $('#send').trigger('click');
+      }
+    }
+
+    receiver_socket.onopen = function(ev){
+      receiver_socket.send(JSON.stringify({
+        data:'连上了',
+        type:'mess'
+      }))
+    }
+
+    receiver_socket.onclose = function(ev){
+      alert('连接已经关闭',ev);
+    }
+
+    function senddata(data){
+      receiver_socket.send(JSON.stringify({
+        data:data,
+        type:'mess'
+      }))
+    }
+
+  </script>

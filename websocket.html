@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script>
+      var wsServer = "ws://192.168.59.131:9501";
+      var webSocket = new WebSocket(wsServer);
+      webSocket.onopen = function(evt){
+        console.log("连接成功");
+      }
+      webSocket.onclose = function(evt){
+        console.log("关闭");
+      }
+      webSocket.onmessage = function(evt){
+        console.log(evt.data);
+      }
+      webSocket.onerror =  function(evt,e){
+        console.log("error");
+      }
+      </script>
+  </body>
+</html>

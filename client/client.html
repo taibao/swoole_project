@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="send_msg" style="display:none;">
+      <div id="msg" ></div>
+      <input type="text" id="text" />
+      <input type="submit" value="发送数据"  onclick="send_msg()">
+    </div>
+    <!--设置昵称-->
+    <div id="setName">
+      <input type="text" id="myname" placeholder="输入昵称" />
+      <input type="submit" value="设置昵称" onclick="send_name()" />
+    </div>
+
+    <script  src="jquery.min.js"></script>
+
+    <script>
+
+      var msg = $("#msg");
+
+      var wsServer = "ws://192.168.59.131:9502";
+      var webSocket = new WebSocket(wsServer);
+      webSocket.onopen = function(evt){
+        console.log("连接成功");
+      }
+      webSocket.onclose = function(evt){
+        console.log("关闭");
+      }
+      webSocket.onmessage = function(evt){
+        msg.append(evt.data+"<br/>");
+        console.log("从服务器接收到的数据"+evt.data);
+      }
+      webSocket.onerror =  function(evt,e){
+        console.log("错误: "+evt.data);
+      }
+
+      function send_msg(){
+        var text = $("#text").val();
+        $("#text").val("");
+        webSocket.send(text); //向服务器发送数据
+      }
+      function send_name(){
+        var text = $("#myname").val();
+        webSocket.send("#name#"+text); //向服务器发送数据
+        $("#myTitle").html("IM"+text);
+        alert("设置成功");
+        $("#setName").hide();
+        $("#send_msg").show();
+      }
+
+      </script>
+  </body>
+</html>
