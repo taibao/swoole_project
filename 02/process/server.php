@@ -20,6 +20,7 @@
 
     //绑定事件
     $server->on("Start" ,function(){
+        var_dump(1);
         //设置主进程名称
         swoole_set_process_name("server-process:master");
     });
@@ -32,12 +33,14 @@
 
     //当管理进程启动时调用它
     $server->on('ManagerStart',function(){
-       swoole_set_process_name("server-process:manager");
+        var_dump(2);
+
+        swoole_set_process_name("server-process:manager");
     });
 
     $server->on('WorkerStart',function($server,$workerId){
-        var_dump($server);
        swoole_set_process_name("server-process:worker");
+        var_dump(3);
     });
 
 
@@ -59,6 +62,10 @@ $server->on('receive',function($server, $fd, $reactor_id, $data){
 $server->on('close',function(){
     echo "消息关闭".PHP_EOL;
 });
+
+//服务器开启
+$server->start();
+
 
 //服务器开启
 $server->start();
