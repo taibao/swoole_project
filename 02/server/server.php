@@ -29,6 +29,7 @@
 
          //正常读取到数据，触发消息接收事件，响应内容
 
+         $buffer = "大郎吃药了";
          if(!empty($buffer) && is_callable($this->onMessage)){
              call_user_func($this->onMessage,$clientSocket,$buffer);
          }
@@ -48,9 +49,23 @@ $worker->onConnect = function ($arg) {
 };
 
 //事件回调
+/**
+ * @param $conn
+ * @param $message
+ */
 $worker->onMessage = function ($conn, $message) {
     //事件回调当中写业务逻辑
-    var_dump($conn, $message);
+    //var_dump($conn, $message);
+   //拼装http响应头
+    $content = $message;
+    $http_resonse = "HTTP/1.1 200 OK\r\n";
+    $http_resonse .= "Content-Type: text/html;charset=UTF-8\r\n";
+    $http_resonse .= "Connection: keep-alive\r\n"; //保持长链接
+    $http_resonse .= "Server: php socket server\r\n";
+    $http_resonse .= "Content-length: ".strlen($content)."\r\n\r\n";
+    $http_resonse .= $content;
+    fwrite($conn, $http_resonse);
+
 };
 
 
