@@ -1,5 +1,10 @@
 <?php
 
+//多个客户端发起请求，观察服务器状态
+//ab -c 并发量 -n 请求数 -k url
+// -k 长链接
+
+
  class Worker{
      //监听socket
      protected $socket = NULL;
@@ -17,6 +22,12 @@
      }
 
      public function start(){
+
+         //创建多个子进程阻塞接收
+
+
+
+         //只能支持一个链接
             while(true){
                 $clientSocket = stream_socket_accept($this->socket);//阻塞监听
 
@@ -34,6 +45,7 @@
                 if(!empty($buffer) && is_callable($this->onMessage)){
                     call_user_func($this->onMessage,$clientSocket,$buffer);
                 }
+                fclose();
 
                 //连接建立成功触发事件
 //         call_user_func($this->onConnect,"参数");
