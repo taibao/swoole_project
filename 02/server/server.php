@@ -22,15 +22,11 @@
      }
 
      public function start(){
-
          //创建多个子进程阻塞接收
-
-
-
          //只能支持一个链接
             while(true){
                 $clientSocket = stream_socket_accept($this->socket);//阻塞监听
-
+                //触发事件的连接的回调
                 if(!empty($clientSocket) && is_callable($this->onConnect)){
                     //触发事件的连接的回调
                     call_user_func($this->onConnect,$clientSocket);
@@ -40,7 +36,6 @@
                 $buffer =  fread($clientSocket,65535);
 
                 //正常读取到数据，触发消息接收事件，响应内容
-
                 $buffer = "大郎吃药了<br/>";
                 if(!empty($buffer) && is_callable($this->onMessage)){
                     call_user_func($this->onMessage,$clientSocket,$buffer);
@@ -51,8 +46,6 @@
 //         call_user_func($this->onConnect,"参数");
             }
      }
-
-
 
 
  }
