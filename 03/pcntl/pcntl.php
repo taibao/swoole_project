@@ -16,14 +16,14 @@
             exit("创建失败了");
             exit("创建失败了");
         }else if($pid > 0){
-            $a =2 ;
             //父进程空间，返回子进程id
-            echo "子进程id:".$pid.PHP_EOL;
+            echo "子进程id:".$a.PHP_EOL;
         }else {
             //返回为0子进程空间
             //子进程创建成功
+            $a =2 ;
             echo $pid . PHP_EOL;
-            sleep(20);
+            echo "子进程：".$a.PHP_EOL;
         }
     }
 
