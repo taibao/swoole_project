@@ -18,13 +18,13 @@
             exit("创建失败了");
         }else if($pid > 0){
             //父进程空间，返回子进程id
+            $status = 0;
+            $pid = pcntl_wait($status); // 结束的子进程信息，阻塞状态
             echo "子进程id:".$pid.PHP_EOL;
-
         }else {
             //返回为0子进程空间
             //子进程创建成功
-            echo $pid . PHP_EOL;
-            sleep(20);
+            sleep(10);
         }
     }
 
