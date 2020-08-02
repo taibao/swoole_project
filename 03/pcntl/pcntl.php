@@ -8,10 +8,10 @@
 
     $a = 1;
     //$ppid = posix_getppid(); //得到父进程id
-    $pid = posix_getpid(); //得到当前进程id
-    echo $pid.PHP_EOL;
+//    $pid = posix_getpid(); //得到当前进程id
+//    echo $pid.PHP_EOL;
 
-    $pid = pcntl_fork(); //创建成功会返回子进程id
+//    $pid = pcntl_fork(); //创建成功会返回子进程id
 //    for($i=0;$i<5;$i++){
         $pid = pcntl_fork(); //创建成功会返回子进程id
         if($pid < 0){
