@@ -10,7 +10,7 @@
     $ppid = posix_getppid(); //得到当前进程id
     echo $ppid.PHP_EOL;
 
-    for($i=0;$i<5;$i++){
+//    for($i=0;$i<5;$i++){
         $pid = pcntl_fork(); //创建成功会返回子进程id
         if($pid < 0){
             exit("创建失败了");
@@ -25,5 +25,5 @@
             echo $pid . PHP_EOL;
             echo "子进程：".$a.PHP_EOL;
         }
-    }
+//    }
 
