@@ -16,7 +16,6 @@
         $pid = pcntl_fork(); //创建成功会返回子进程id
         if($pid < 0){
             exit("创建失败了");
-            exit("创建失败了");
         }else if($pid > 0){
             //父进程空间，返回子进程id
             echo "子进程id:".$a.PHP_EOL;
