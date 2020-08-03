@@ -12,7 +12,7 @@
 //    echo $pid.PHP_EOL;
 
 //    $pid = pcntl_fork(); //创建成功会返回子进程id
-    for($i=0;$i<5;$i++){
+    for($i=0;$i<1;$i++){
         $pid = pcntl_fork(); //创建成功会返回子进程id
         if($pid < 0){
             exit("创建失败了");
