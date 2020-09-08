@@ -6,6 +6,7 @@
 
 
  class Worker{
+
      //监听socket
      protected $socket = NULL;
      //连接事件回调
